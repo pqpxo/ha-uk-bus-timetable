@@ -6,6 +6,8 @@
 
 <h1 align="center">UK Bus Timetable for Home Assistant</h1>
 
+&nbsp;
+
 Show the next bus from your local stop in Home Assistant: route, direction, scheduled time, live estimated time and minutes until it arrives.
 
 It uses Home Assistant's built-in **UK Transport** integration (`uk_transport`) with live data from [TransportAPI](https://developer.transportapi.com). There is nothing to install from HACS.
@@ -35,6 +37,8 @@ It uses Home Assistant's built-in **UK Transport** integration (`uk_transport`) 
 </p>
 
 <p align="center"><sub>The dashboard card from step 6, shown with sample data.</sub></p>
+
+&nbsp;
 
 | Entity | Example state | What it is |
 |---|---|---|
