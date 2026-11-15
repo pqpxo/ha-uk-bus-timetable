@@ -1,4 +1,10 @@
-# UK Bus Timetable for Home Assistant
+<p align="center">
+  <img src="docs/transportapi-logo.png" alt="TransportAPI logo" height="96">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/home-assistant-logo.png" alt="Home Assistant logo" height="96">
+</p>
+
+<h1 align="center">UK Bus Timetable for Home Assistant</h1>
 
 Show the next bus from your local stop in Home Assistant: route, direction, scheduled time, live estimated time and minutes until it arrives.
 
