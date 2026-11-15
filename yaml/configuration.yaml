@@ -1,0 +1,47 @@
+# Add to your Home Assistant configuration.yaml.
+# If you already have a sensor: or template: section, put these entries
+# under the existing key instead of repeating it.
+
+sensor:
+  - platform: uk_transport
+    app_id: !secret transportapi_app_id
+    app_key: !secret transportapi_app_key
+    # Poll rarely; automation.yaml does the real refreshing
+    scan_interval: 86400
+    queries:
+      - mode: bus
+        origin: YOUR_ATCO_CODE    # your stop's ATCO code
+        destination: City         # must match text in the bus "direction"
+
+# The sensor above is named "Next bus to <destination>", so destination: City
+# gives sensor.next_bus_to_city. Its state is minutes until the next bus.
+# These template sensors split out the details of the next bus.
+template:
+  - sensor:
+      - name: "Next bus route"
+        unique_id: next_bus_route
+        icon: mdi:bus
+        state: >
+          {% set b = state_attr('sensor.next_bus_to_city', 'next_buses') %}
+          {{ b[0].route if b else 'none' }}
+
+      - name: "Next bus direction"
+        unique_id: next_bus_direction
+        icon: mdi:sign-direction
+        state: >
+          {% set b = state_attr('sensor.next_bus_to_city', 'next_buses') %}
+          {{ b[0].direction if b else 'none' }}
+
+      - name: "Next bus scheduled"
+        unique_id: next_bus_scheduled
+        icon: mdi:clock-outline
+        state: >
+          {% set b = state_attr('sensor.next_bus_to_city', 'next_buses') %}
+          {{ b[0].scheduled if b else 'none' }}
+
+      - name: "Next bus estimated"
+        unique_id: next_bus_estimated
+        icon: mdi:clock-fast
+        state: >
+          {% set b = state_attr('sensor.next_bus_to_city', 'next_buses') %}
+          {{ b[0].estimated if b else 'none' }}

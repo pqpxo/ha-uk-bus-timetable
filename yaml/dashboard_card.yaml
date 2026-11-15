@@ -1,0 +1,15 @@
+# Edit a dashboard > Add card > Manual, then paste.
+
+type: entities
+title: Next bus
+entities:
+  - entity: sensor.next_bus_to_city
+    name: Minutes away
+  - entity: sensor.next_bus_route
+    name: Route
+  - entity: sensor.next_bus_direction
+    name: Towards
+  - entity: sensor.next_bus_scheduled
+    name: Scheduled
+  - entity: sensor.next_bus_estimated
+    name: Estimated
