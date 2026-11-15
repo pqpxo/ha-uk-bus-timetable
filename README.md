@@ -24,6 +24,12 @@ It uses Home Assistant's built-in **UK Transport** integration (`uk_transport`) 
 
 ## What you get
 
+<p align="center">
+  <img src="docs/screenshot-card.png" alt="Home Assistant entities card showing the next bus: 7 minutes away, route 42 towards City Centre, scheduled 07:32, estimated 07:35" width="460">
+</p>
+
+<p align="center"><sub>The dashboard card from step 6, shown with sample data.</sub></p>
+
 | Entity | Example state | What it is |
 |---|---|---|
 | `sensor.next_bus_to_city` | `7` | Minutes until the next bus. Holds the full list of upcoming buses in its `next_buses` attribute |
